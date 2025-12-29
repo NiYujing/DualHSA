@@ -1,0 +1,65 @@
+{
+    "name": "HSA",
+    "n_gpu": 1,
+
+    "arch": {
+        "type": "HSA_config",
+        "args": {
+            "emb_dim": 64,
+            "l1_decay": 1e-5
+        }
+    },
+    "HSA_data_loader": {
+        "type": "HSA_data_loader",
+        "args":{
+            "data_dir": "data/data_tvt/",
+            "batch_size": 128,
+            "n_memory": 256, 
+            "shuffle": false,
+            "validation_split": 0.1,
+            "test_split": 0.1,
+            "num_workers": 2
+        }
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args":{
+            "lr": 0.001,
+            "weight_decay": 1e-4,
+            "amsgrad": true
+        }
+    },
+    "loss": "focal_loss_with_logits",
+    "alpha": 0.3,
+    "metrics": [
+        "accuracy", "precision", "recall", "roc_auc", "pr_auc", "f1_score"
+    ],
+    "lr_scheduler": {
+        "type": "StepLR",
+        "args": {
+            "step_size": 20,
+            "gamma": 0.1
+        }
+    },
+    "trainer": {
+        "epochs": 50,
+        "save_dir": "HSA_Result/",
+        "save_period": 200,
+        "verbosity": 2, 
+        "monitor": "max roc_auc",
+        "early_stop": 10,
+        "tensorboard": false
+    },
+    "pro_gat":{
+        "out_channels": 160,
+        "heads": 8,
+        "dropout": 0.2,
+        "add_self_loops": true,
+        "num_layers": 2,
+        "threshold": 2 
+    },
+    "PLM":{
+        "model_type": "ESM",
+        "pro_dim": 1280
+    }
+}
