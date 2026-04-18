@@ -36,4 +36,4 @@ The code has been tested running under Python 3.8. The required package are as f
 # Contact
 
 
-Please feel free to contact us if you need any help ([nyj_1203@webmail.hzau.edu.cn](mailto:nyj_1203@webmail.hzau.edu.cn) or [zhangwen@mail.hzau.edu.cn](mailto:zhangwen@mail.hzau.edu.cn)).
+Please feel free to contact us if you need any help (anonymous).
