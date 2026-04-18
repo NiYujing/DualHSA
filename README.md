@@ -1,7 +1,7 @@
 # DualHSA
 
 Code and datasets for:
-> DualHSA: A Dual-Level Interpretable Attention Model for Predicting Herb-Symptom Associations and Mechanisms of Action
+> DualHSA
 
 ## Framework
 ![# DualHSA](model.png)
